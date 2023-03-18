@@ -2,10 +2,9 @@
 
 ## Site Preview Link
 
-[Preview Link](https://vercel.com/vue-ts-exam)
+[Live Preview](https://vue-ts-exam.vercel.app/)
 
-
-## Project setup
+### Project setup
 ```
 pnpm install
 ```
