@@ -5,16 +5,22 @@
         <h1
           class="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white"
         >
-          From the blog
+          From the Store
         </h1>
 
         <p class="max-w-lg mx-auto mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-          veritatis sint autem nesciunt, laudantium quia tempore delect
+          Exquisite Offers and deals from our global store offering a range of
+          best selling and trusted services. In delight of your satisfactionj
+          and convinience.
         </p>
       </div>
 
-      <ul class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+      <transition-group
+        tag="ul"
+        name="list"
+        appear
+        class="grid grid-cols-1 gap-8 mt-8 relative sm:grid-cols-2 lg:grid-cols-3"
+      >
         <li
           v-for="product in products"
           :key="product.id"
@@ -52,7 +58,7 @@
             </div>
           </div>
         </li>
-      </ul>
+      </transition-group>
     </div>
   </section>
 </template>
@@ -82,3 +88,23 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.list-enter-to,
+.list-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.4s ease;
+  position: absolute;
+}
+.list-move {
+  transition: all 0.5s ease;
+}
+</style>

@@ -3,13 +3,14 @@
     <div class="container px-6 py-4 mx-auto">
       <div class="lg:flex lg:items-center lg:justify-between">
         <div class="flex items-center justify-between">
-          <router-link :to="{ name: 'HomePage' }">
+          <a href="/">
             <img
-              class="w-auto h-6 sm:h-7"
-              src="https://merakiui.com/images/full-logo.svg"
-              alt=""
+              class="w-auto h-12"
+              :src="
+                require('public/Prismatic-Lotus-Flower-13-No-Background.svg')
+              "
             />
-          </router-link>
+          </a>
 
           <!-- Mobile menu button -->
           <div class="flex lg:hidden">
@@ -93,9 +94,9 @@
             >
               <div class="relative">
                 <div
-                  v-if="isAuth"
+                  v-if="isAuthenticated"
                   @click="openMenu = !openMenu"
-                  class="w-16 h-16 overflow-hidden border-2 border-gray-400 rounded-full relative z-10 block transition-colors duration-300 transform hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80"
+                  class="w-16 h-16 overflow-hidden border-2 border-gray-400 rounded-full relative z-10 block transition-colors duration-300 transform hover:bg-purple-500 focus:outline-none focus:ring focus:ring-purple-300 focus:ring-opacity-80"
                 >
                   <img
                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
@@ -105,9 +106,9 @@
                   />
                 </div>
                 <router-link
-                  :to="{ name: '/login' }"
+                  :to="{ name: 'LoginPage' }"
                   v-else
-                  class="flex items-center px-4 py-2 font-medium tracking-wide text-white w-full capitalize justify-center transition-colors duration-300 transform rounded-lg focus:outline-none focus:ring bg-blue-600 focus:ring-opacity-80"
+                  class="flex items-center px-4 py-2 font-medium tracking-wide text-white w-full capitalize justify-center transition-colors duration-300 transform rounded-lg focus:outline-none focus:ring bg-purple-600 focus:ring-opacity-80"
                 >
                   <span class="mr-2 font-bold">Login</span>
                   <svg
@@ -137,9 +138,9 @@
                   class="absolute right-0 z-20 w-48 mt-2 overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
                 >
                   <button
-                    v-if="isAuth"
+                    v-if="isAuthenticated"
                     @click="logout"
-                    class="flex items-center px-4 py-2 font-medium tracking-wide text-black w-full capitalize justify-center transition-colors duration-300 transform rounded-lg focus:outline-none focus:ring bg-blue-50 hover:bg-blue-100 focus:ring-opacity-80"
+                    class="flex items-center px-4 py-2 font-medium tracking-wide text-black w-full capitalize justify-center transition-colors duration-300 transform rounded-lg focus:outline-none focus:ring bg-purple-50 hover:bg-purple-100 focus:ring-opacity-80"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +169,7 @@
   </nav>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
   name: "NavBar",
@@ -176,15 +177,16 @@ export default defineComponent({
     const isOpen = ref<boolean>(false);
     const openMenu = ref<boolean>(false);
     const store = useStore();
+    const isAuthenticated = computed(
+      () => store.getters["auth/isAuthenticated"]
+    );
+    const currentUser = computed(() => store.getters["auth/user"]);
 
     const logout = async () => {
       await store.dispatch("auth/logout");
     };
 
-    const isAuth = true;
-    // const isAuth = store.getters["auth/isAuth"];
-
-    return { isOpen, openMenu, isAuth, logout };
+    return { isOpen, openMenu, isAuthenticated, currentUser, logout };
   },
 });
 </script>

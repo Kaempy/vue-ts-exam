@@ -2,7 +2,9 @@
   <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-12 mx-auto">
       <div class="text-center">
-        <p class="font-medium text-blue-500 dark:text-blue-400">Contact us</p>
+        <p class="font-medium text-purple-500 dark:text-purple-400">
+          Contact us
+        </p>
 
         <h1
           class="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white"
@@ -22,9 +24,9 @@
       />
 
       <div class="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-3 sm:grid-cols-2">
-        <div class="p-4 rounded-lg bg-blue-50 md:p-6 dark:bg-gray-800">
+        <div class="p-4 rounded-lg bg-purple-50 md:p-6 dark:bg-gray-800">
           <span
-            class="inline-block p-3 text-blue-500 rounded-lg bg-blue-100/80 dark:bg-gray-700"
+            class="inline-block p-3 text-purple-500 rounded-lg bg-purple-100/80 dark:bg-gray-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,14 +50,14 @@
           <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
             Speak to our friendly team.
           </p>
-          <p class="mt-2 text-sm text-blue-500 dark:text-blue-400">
-            hello@merakiui.com
+          <p class="mt-2 text-sm text-purple-500 dark:text-purple-400">
+            campa.banj@gmail.com
           </p>
         </div>
 
-        <div class="p-4 rounded-lg bg-blue-50 md:p-6 dark:bg-gray-800">
+        <div class="p-4 rounded-lg bg-purple-50 md:p-6 dark:bg-gray-800">
           <span
-            class="inline-block p-3 text-blue-500 rounded-lg bg-blue-100/80 dark:bg-gray-700"
+            class="inline-block p-3 text-purple-500 rounded-lg bg-purple-100/80 dark:bg-gray-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,14 +86,14 @@
           <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
             Visit our office HQ..
           </p>
-          <p class="mt-2 text-sm text-blue-500 dark:text-blue-400">
-            100 Smith Street Collingwood VIC 3066 AU
+          <p class="mt-2 text-sm text-purple-500 dark:text-purple-400">
+            Dar Es-Salam, Wuse 2 Abuja, Nigeria
           </p>
         </div>
 
-        <div class="p-4 rounded-lg bg-blue-50 md:p-6 dark:bg-gray-800">
+        <div class="p-4 rounded-lg bg-purple-50 md:p-6 dark:bg-gray-800">
           <span
-            class="inline-block p-3 text-blue-500 rounded-lg bg-blue-100/80 dark:bg-gray-700"
+            class="inline-block p-3 text-purple-500 rounded-lg bg-purple-100/80 dark:bg-gray-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +117,8 @@
           <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
             Mon-Fri from 8am to 5pm.
           </p>
-          <p class="mt-2 text-sm text-blue-500 dark:text-blue-400">
-            +1 (555) 000-0000
+          <p class="mt-2 text-sm text-purple-500 dark:text-purple-400">
+            +234 (706) 370-0760
           </p>
         </div>
       </div>
@@ -129,7 +131,7 @@
           marginheight="0"
           marginwidth="0"
           scrolling="no"
-          src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%C4%B0zmir+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.885224035232!2d7.464933014109099!3d9.07421989348951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0ae38545f9d7%3A0xd0bcb62e7af143aa!2sDar-Es-Salaam%20Cl%2C%20Wuse%20904101%2C%20Abuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1679092821582!5m2!1sen!2sng"
         ></iframe>
       </div>
     </div>

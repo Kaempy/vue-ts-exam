@@ -4,7 +4,7 @@
       class="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12"
     >
       <div class="wf-ull text-left lg:w-1/2">
-        <p class="text-sm font-medium text-blue-500 dark:text-blue-400">
+        <p class="text-sm font-medium text-purple-500 dark:text-purple-400">
           404 error
         </p>
         <h1
@@ -19,7 +19,7 @@
 
         <router-link :to="{ name: 'HomePage' }">
           <button
-            class="w-1/2 px-5 py-2 mt-4 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600"
+            class="w-1/2 px-5 py-2 mt-4 text-sm tracking-wide text-white transition-colors duration-200 bg-purple-500 rounded-lg shrink-0 sm:w-auto hover:bg-purple-600 dark:hover:bg-purple-500 dark:bg-purple-600"
           >
             Take me home
           </button>
@@ -29,7 +29,7 @@
       <div class="relative w-full mt-12 lg:w-1/2 lg:mt-0">
         <img
           class="w-full max-w-lg lg:mx-auto"
-          src="/public/404-illustrations.svg"
+          :src="require('public/404-illustrations.svg')"
           alt="Page Not Found"
           title="Page Not Found"
         />

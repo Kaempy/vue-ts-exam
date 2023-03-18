@@ -23,6 +23,10 @@ import FooterView from "@components/layout/Footer.vue";
   text-align: center;
   color: #2c3e50;
 }
+nav a.router-link-exact-active {
+  background: #8d56cc;
+  color: white;
+}
 .component-root {
   display: flex;
   flex-direction: column;

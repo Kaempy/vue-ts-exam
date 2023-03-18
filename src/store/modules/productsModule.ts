@@ -1,5 +1,5 @@
 import axiosClient from "@src/api/axiosClient";
-import { Module, MutationTree, ActionTree, GetterTree } from "vuex";
+import { Module, MutationTree, ActionTree } from "vuex";
 import { RootState, ProductState, ProductProps } from "../types";
 
 const state: ProductState = {
@@ -45,16 +45,11 @@ const actions: ActionTree<ProductState, RootState> = {
   },
 };
 
-const getters: GetterTree<ProductState, RootState> = {
-  // define your getters here
-};
-
 const productsModule: Module<ProductState, RootState> = {
   namespaced: true,
   state,
   mutations,
   actions,
-  getters,
 };
 
 export default productsModule;

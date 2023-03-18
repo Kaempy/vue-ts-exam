@@ -9,22 +9,24 @@
       "
     ></div>
 
-    <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
+    <form
+      @submit.prevent="submitHandler"
+      class="w-full px-6 py-8 md:px-8 lg:w-1/2"
+    >
       <div class="flex justify-center mx-auto">
         <img
-          class="w-auto h-7 sm:h-8"
-          src="https://merakiui.com/images/logo.svg"
-          alt=""
+          class="w-auto h-12"
+          :src="require('public/Prismatic-Lotus-Flower-13-No-Background.svg')"
         />
       </div>
 
       <p class="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
-        Welcome !
+        Welcome!
       </p>
 
-      <a
-        href="#"
-        class="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+      <button
+        @click="signInWithGoogle"
+        class="flex items-center justify-center mt-4 w-full text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
       >
         <div class="px-4 py-2">
           <svg class="w-6 h-6" viewBox="0 0 40 40">
@@ -50,15 +52,15 @@
         <span class="w-5/6 px-4 py-3 font-bold text-center"
           >Sign up with Google</span
         >
-      </a>
+      </button>
 
       <div class="flex items-center justify-between mt-4">
         <span class="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
         <a
-          href="#"
+          href="#email"
           class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
-          >or register with email</a
+          >register with email</a
         >
 
         <span class="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
@@ -72,7 +74,8 @@
         >
         <input
           id="email"
-          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          v-model="email"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-purple-400 focus:ring-opacity-40 dark:focus:border-purple-300 focus:outline-none focus:ring focus:ring-purple-300"
           type="email"
         />
       </div>
@@ -86,13 +89,16 @@
 
         <input
           id="password"
-          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+          v-model="password"
+          class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-purple-400 focus:ring-opacity-40 dark:focus:border-purple-300 focus:outline-none focus:ring focus:ring-purple-300"
           type="password"
         />
       </div>
 
       <div class="mt-6">
         <button
+          type="submit"
+          :disabled="!email && !password"
           class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
         >
           Sign Up
@@ -102,41 +108,45 @@
       <div class="flex items-center justify-between mt-4">
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-        <a
-          href="#"
+        <router-link
+          to="/auth/login"
           class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
-          >or login</a
+          >or login</router-link
         >
 
         <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
-
 export default defineComponent({
   name: "SignupView",
   components: {},
   setup() {
     const store = useStore();
 
-    const username = ref("");
+    const email = ref("");
     const password = ref("");
-    console.log(username, password.value, "values");
-    const credentials = {
-      username: username.value,
-      password: password.value,
-    };
 
     const submitHandler = async () => {
-      if (username.value !== "" && password.value !== "") {
-        return await store.dispatch("auth/login", credentials);
+      if (email.value !== "" && password.value !== "") {
+        const response = await store.dispatch("auth/signup", {
+          email: email.value,
+          password: password.value,
+        });
+        return response;
       }
     };
-    return { username, password, submitHandler };
+
+    const signInWithGoogle = async () => {
+      const response = await store.dispatch("auth/googleSignin");
+      return response;
+    };
+
+    return { email, password, submitHandler, signInWithGoogle };
   },
 });
 </script>

@@ -5,9 +5,8 @@
     >
       <router-link to="/">
         <img
-          class="w-auto h-7"
-          src="https://merakiui.com/images/full-logo.svg"
-          alt=""
+          class="w-auto h-12"
+          :src="require('public/Prismatic-Lotus-Flower-13-No-Background.svg')"
         />
       </router-link>
 
@@ -18,7 +17,7 @@
       <div class="flex -mx-2">
         <router-link
           to="/"
-          class="mx-2 text-gray-600 transition-colors duration-300 hover:animate-spin-fast dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+          class="mx-2 text-gray-600 transition-colors duration-300 hover:animate-spin-fast dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400"
           aria-label="Reddit"
         >
           <svg
@@ -35,7 +34,7 @@
 
         <router-link
           to="/"
-          class="mx-2 text-gray-600 transition-colors duration-300 hover:animate-spin-fast dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+          class="mx-2 text-gray-600 transition-colors duration-300 hover:animate-spin-fast dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400"
           aria-label="Facebook"
         >
           <svg
@@ -52,7 +51,7 @@
 
         <router-link
           to="/"
-          class="mx-2 text-gray-600 transition-colors hover:animate-spin-fast duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+          class="mx-2 text-gray-600 transition-colors hover:animate-spin-fast duration-300 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400"
           aria-label="Github"
         >
           <svg

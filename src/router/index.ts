@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "@views/HomeView.vue";
-import store from "@src/store/store";
+import useGuard from "@src/composables/auth-guard";
+
+const { authGuard } = useGuard();
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -60,10 +62,16 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
-    next("/auth/login");
+// Use the authGuard function as a Vue Router beforeEach guard
+router.beforeEach(async (to, from, next) => {
+  // Check if the route requires authentication
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+  if (requiresAuth) {
+    // Route requires authentication, call the authGuard function
+    await authGuard(to, from, next);
   } else {
+    // Route does not require authentication, allow access to route
     next();
   }
 });

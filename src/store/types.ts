@@ -1,17 +1,13 @@
 interface loginProps {
-  username: string;
+  email: string;
   password: string;
 }
 
 interface UserProps {
-  id: number;
-  username: string;
+  displayName: string;
   email: string;
-  firstName: string;
-  lastName: string;
-  gender: string;
-  image: string;
-  token: string;
+  photoURL: string;
+  accessToken?: string;
 }
 
 interface AuthState {

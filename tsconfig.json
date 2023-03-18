@@ -17,8 +17,8 @@
       "@src/*": ["src/*"],
       "@public/*": ["public/*"],
       "@api/*": ["src/api/*"],
-      "@config/*": ["src/config/*"],
       "@components/*": ["src/components/*"],
+      "@composables/*": ["src/composables/*"],
       "@router/*": ["src/router/*"],
       "@store/*": ["src/store/*"],
       "@views/*": ["src/views/*"]
