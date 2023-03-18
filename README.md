@@ -2,7 +2,7 @@
 
 ## Site Preview Link
 
-[Preview Link](vue-ts-exam.vercel.app/)
+[Preview Link](https://vercel.com/kaempy/vue-ts-exam)
 
 
 ## Project setup
