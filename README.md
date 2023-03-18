@@ -1,5 +1,10 @@
 # vue-typescript
 
+## Site Preview Link
+
+[Preview Link](vue-ts-exam.vercel.app/)
+
+
 ## Project setup
 ```
 pnpm install
